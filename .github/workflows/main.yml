@@ -1,0 +1,23 @@
+name: Create Files on Local Runner 
+on:
+  push:
+    branches:
+      - main  
+jobs:
+  create-files:
+    runs-on: self-hosted  
+    steps:
+      - name: Check runner location   
+        run: pwd 
+
+      - name: Create directory 
+        run: mkdir -p /home/gitrunner/files 
+
+      - name: Create sample file 
+        run: echo "This is a file generated from GitHub Actions" > /home/gitrunner/files/sample.txt
+
+      - name: Create file with date 
+        run: date > /home/gitrunner/files/date.txt
+
+      - name: Show created files 
+        run: ls -ltr /home/gitrunner/files
