@@ -17,10 +17,10 @@ jobs:
         run: echo "This is a file generated from GitHub Actions" > /home/runner/files/sample.txt
 
       - name: Create file with date 
-        run: date > /home/gitrunner/files/date.txt
+        run: date > /home/runner/files/date.txt
 
       - name: Show created files 
-        run: ls -ltr /home/gitrunner/files
+        run: ls -ltr /home/runner/files
       - name: show content
         run: cat /home/runner/files/sample.txt
       - name: show content
