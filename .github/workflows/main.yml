@@ -5,19 +5,23 @@ on:
       - main  
 jobs:
   create-files:
-    runs-on: self-hosted  
+    runs-on: label1  
     steps:
       - name: Check runner location   
         run: pwd 
 
       - name: Create directory 
-        run: mkdir -p /home/gitrunner/files 
+        run: mkdir -p /home/runner/files 
 
       - name: Create sample file 
-        run: echo "This is a file generated from GitHub Actions" > /home/gitrunner/files/sample.txt
+        run: echo "This is a file generated from GitHub Actions" > /home/runner/files/sample.txt
 
       - name: Create file with date 
         run: date > /home/gitrunner/files/date.txt
 
       - name: Show created files 
         run: ls -ltr /home/gitrunner/files
+      - name: show content
+        run: cat /home/runner/files/sample.txt
+      - name: show content
+        run: cat /home/runner/files/date.txt
